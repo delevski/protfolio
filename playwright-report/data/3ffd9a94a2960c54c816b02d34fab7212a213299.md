@@ -1,0 +1,337 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]: Or Delevski
+        - generic [ref=e6]:
+          - button [ref=e7]:
+            - img [ref=e8]
+          - button [ref=e10]:
+            - img [ref=e11]
+  - main [ref=e15]:
+    - generic [ref=e17]:
+      - generic [ref=e18]:
+        - heading "Or Delevski" [level=1] [ref=e19]
+        - heading "CTO / VP R&D & Technology Leader" [level=2] [ref=e20]
+        - paragraph [ref=e21]: Innovative and results-oriented technology leader with 15+ years of experience in R&D, product innovation, and scaling high-performance engineering teams. Expert in cloud architecture, AI-powered solutions, automation, and mobile platforms.
+        - generic [ref=e22]:
+          - button "Download CV" [ref=e23]:
+            - img [ref=e24]
+            - text: Download CV
+          - button "View Projects" [ref=e28]
+      - img [ref=e31]
+    - generic [ref=e36]:
+      - heading "About Me" [level=2] [ref=e38]
+      - generic [ref=e40]:
+        - generic [ref=e41]:
+          - generic [ref=e42]:
+            - heading "Personal Information" [level=3] [ref=e43]
+            - generic [ref=e44]:
+              - generic [ref=e45]:
+                - img [ref=e46]
+                - generic [ref=e49]: Ramat-Gan, Israel
+              - generic [ref=e50]:
+                - img [ref=e51]
+                - generic [ref=e54]: ordi1985@gmail.com
+              - generic [ref=e55]:
+                - img [ref=e56]
+                - generic [ref=e58]: +972-54-7917154
+              - generic [ref=e59]:
+                - img [ref=e60]
+                - generic [ref=e65]: "Born: 03/09/1985"
+          - generic [ref=e66]:
+            - heading "Professional Summary" [level=3] [ref=e67]
+            - paragraph [ref=e68]: Innovative and results-oriented technology leader with 15+ years of experience in R&D, product innovation, and scaling high-performance engineering teams. Expert in cloud architecture, AI-powered solutions, automation, and mobile platforms. Proven ability to align technology strategy with business goals and lead cross-functional teams to deliver impactful, scalable products.
+        - generic [ref=e69]:
+          - heading "Professional Experience" [level=3] [ref=e70]
+          - generic [ref=e71]:
+            - generic [ref=e72]:
+              - heading "CTO / VP R&D" [level=4] [ref=e73]
+              - generic [ref=e74]: 2023 – Present
+            - paragraph [ref=e75]: Constrol
+            - list [ref=e76]:
+              - listitem [ref=e77]: Built the company's technology organization from scratch, doubling revenue in one year through scalable architectures and automation
+              - listitem [ref=e79]: Designed and implemented BI, CRM, and SaaS platforms with real-time tracking
+              - listitem [ref=e81]: Introduced AI-driven solutions and workflow automation using n8n, Zapier, and MCP-based systems
+              - listitem [ref=e83]: Managed 18+ professionals, leading full-stack development in Next.js, React, C#, NestJS, and Python
+              - listitem [ref=e85]: Specialized in AI, computer vision, and QA automation
+            - generic [ref=e87]:
+              - generic [ref=e88]: Next.js
+              - generic [ref=e89]: React
+              - generic [ref=e90]: C#
+              - generic [ref=e91]: NestJS
+              - generic [ref=e92]: Python
+              - generic [ref=e93]: AI/ML
+              - generic [ref=e94]: Computer Vision
+              - generic [ref=e95]: n8n
+              - generic [ref=e96]: Zapier
+              - generic [ref=e97]: MCP
+          - generic [ref=e98]:
+            - generic [ref=e99]:
+              - heading "Head of R&D" [level=4] [ref=e100]
+              - generic [ref=e101]: 2019 – 2023
+            - paragraph [ref=e102]: PayBox (Bank Discount)
+            - list [ref=e103]:
+              - listitem [ref=e104]: Led 20+ engineers across 3 teams in building fintech solutions
+              - listitem [ref=e106]: Migrated monolith to microservices and designed event-driven architecture
+              - listitem [ref=e108]: Saved $3M+ annually through payment optimization
+              - listitem [ref=e110]: Built Tap-to-Pay, cashback, and loyalty integrations
+              - listitem [ref=e112]: Managed Node.js, C#, Kotlin, Swift stacks with GCP, GKE, Jenkins CI/CD
+            - generic [ref=e114]:
+              - generic [ref=e115]: Node.js
+              - generic [ref=e116]: C#
+              - generic [ref=e117]: Kotlin
+              - generic [ref=e118]: Swift
+              - generic [ref=e119]: GCP
+              - generic [ref=e120]: GKE
+              - generic [ref=e121]: Jenkins
+              - generic [ref=e122]: Microservices
+              - generic [ref=e123]: Event-Driven Architecture
+          - generic [ref=e124]:
+            - generic [ref=e125]:
+              - heading "Head of Mobile" [level=4] [ref=e126]
+              - generic [ref=e127]: 2014 – 2019
+            - paragraph [ref=e128]: SpotOption / Dx.Exchange
+            - list [ref=e129]:
+              - listitem [ref=e130]: Led Android, iOS, QA teams to scale B2B fintech mobile platforms
+              - listitem [ref=e132]: Achieved 10M+ downloads and 300+ white-label apps
+              - listitem [ref=e134]: Introduced CI/CD automation and mobile product strategy
+            - generic [ref=e136]:
+              - generic [ref=e137]: Android
+              - generic [ref=e138]: iOS
+              - generic [ref=e139]: Kotlin
+              - generic [ref=e140]: Swift
+              - generic [ref=e141]: CI/CD
+              - generic [ref=e142]: Mobile Strategy
+              - generic [ref=e143]: B2B Platforms
+    - generic [ref=e146]:
+      - generic [ref=e147]:
+        - heading "Featured Projects" [level=2] [ref=e148]
+        - paragraph [ref=e149]: Key projects and platforms I've built and led throughout my career, showcasing expertise across fintech, mobile, AI, and web technologies.
+      - generic [ref=e151]:
+        - generic [ref=e153]:
+          - generic [ref=e154]:
+            - heading "FastAPI AWS Ingestor" [level=3] [ref=e155]
+            - generic [ref=e156]: web
+          - paragraph [ref=e157]: A production-ready FastAPI microservice that ingests JSON, validates and transforms it, then stores the data in AWS S3 or DynamoDB. Includes unit tests, Docker support, and comprehensive error handling.
+          - generic [ref=e158]:
+            - heading "Tech Stack:" [level=4] [ref=e159]
+            - generic [ref=e160]:
+              - generic [ref=e161]: Python
+              - generic [ref=e162]: FastAPI
+              - generic [ref=e163]: AWS S3
+              - generic [ref=e164]: DynamoDB
+              - generic [ref=e165]: Docker
+              - generic [ref=e166]: Pytest
+          - link "GitHub" [ref=e168] [cursor=pointer]:
+            - /url: https://github.com/delevski/fastapi-aws-ingestor
+            - img [ref=e169]
+            - text: GitHub
+        - generic [ref=e173]:
+          - generic [ref=e174]:
+            - heading "CRM PRO VB" [level=3] [ref=e175]
+            - generic [ref=e176]: web
+          - paragraph [ref=e177]: Professional CRM system built with modern web technologies for customer relationship management and business process automation.
+          - generic [ref=e178]:
+            - heading "Tech Stack:" [level=4] [ref=e179]
+            - generic [ref=e180]:
+              - generic [ref=e181]: JavaScript
+              - generic [ref=e182]: Node.js
+              - generic [ref=e183]: React
+              - generic [ref=e184]: MongoDB
+          - link "GitHub" [ref=e186] [cursor=pointer]:
+            - /url: https://github.com/delevski/CRM-PRO-VB
+            - img [ref=e187]
+            - text: GitHub
+        - generic [ref=e191]:
+          - generic [ref=e192]:
+            - heading "Scrape Websites" [level=3] [ref=e193]
+            - generic [ref=e194]: automation
+          - paragraph [ref=e195]: Universal web scraping tool that can extract data from any website with configurable selectors and data processing capabilities.
+          - generic [ref=e196]:
+            - heading "Tech Stack:" [level=4] [ref=e197]
+            - generic [ref=e198]:
+              - generic [ref=e199]: JavaScript
+              - generic [ref=e200]: Node.js
+              - generic [ref=e201]: Puppeteer
+              - generic [ref=e202]: Cheerio
+          - link "GitHub" [ref=e204] [cursor=pointer]:
+            - /url: https://github.com/delevski/Scrape-Websites
+            - img [ref=e205]
+            - text: GitHub
+        - generic [ref=e209]:
+          - generic [ref=e210]:
+            - heading "Banano Editor" [level=3] [ref=e211]
+            - generic [ref=e212]: web
+          - paragraph [ref=e213]: Advanced image editor built with Google's Nano Banana technology, providing powerful image manipulation capabilities.
+          - generic [ref=e214]:
+            - heading "Tech Stack:" [level=4] [ref=e215]
+            - generic [ref=e216]:
+              - generic [ref=e217]: TypeScript
+              - generic [ref=e218]: React
+              - generic [ref=e219]: Canvas API
+              - generic [ref=e220]: Image Processing
+          - link "GitHub" [ref=e222] [cursor=pointer]:
+            - /url: https://github.com/delevski/bananoEditor
+            - img [ref=e223]
+            - text: GitHub
+        - generic [ref=e227]:
+          - generic [ref=e228]:
+            - heading "Do Your Image" [level=3] [ref=e229]
+            - generic [ref=e230]: ai
+          - paragraph [ref=e231]: Creative image generation and manipulation tool that allows users to create custom images with AI-powered features.
+          - generic [ref=e232]:
+            - heading "Tech Stack:" [level=4] [ref=e233]
+            - generic [ref=e234]:
+              - generic [ref=e235]: TypeScript
+              - generic [ref=e236]: React
+              - generic [ref=e237]: AI/ML
+              - generic [ref=e238]: Image Generation
+          - link "GitHub" [ref=e240] [cursor=pointer]:
+            - /url: https://github.com/delevski/Do-your-image
+            - img [ref=e241]
+            - text: GitHub
+        - generic [ref=e245]:
+          - generic [ref=e246]:
+            - heading "OCR Extractor" [level=3] [ref=e247]
+            - generic [ref=e248]: automation
+          - paragraph [ref=e249]: Comprehensive OCR solution that extracts text from PDFs, images, Word documents, Excel files and more with high accuracy.
+          - generic [ref=e250]:
+            - heading "Tech Stack:" [level=4] [ref=e251]
+            - generic [ref=e252]:
+              - generic [ref=e253]: Python
+              - generic [ref=e254]: OCR
+              - generic [ref=e255]: Tesseract
+              - generic [ref=e256]: PDF Processing
+              - generic [ref=e257]: Image Processing
+          - link "GitHub" [ref=e259] [cursor=pointer]:
+            - /url: https://github.com/delevski/OCR-extractor
+            - img [ref=e260]
+            - text: GitHub
+        - generic [ref=e264]:
+          - generic [ref=e265]:
+            - heading "Constrol SaaS Platform" [level=3] [ref=e266]
+            - generic [ref=e267]: web
+          - paragraph [ref=e268]: Comprehensive BI, CRM, and SaaS platform with real-time tracking and AI-driven automation workflows
+          - generic [ref=e269]:
+            - heading "Tech Stack:" [level=4] [ref=e270]
+            - generic [ref=e271]:
+              - generic [ref=e272]: Next.js
+              - generic [ref=e273]: React
+              - generic [ref=e274]: C#
+              - generic [ref=e275]: NestJS
+              - generic [ref=e276]: Python
+              - generic [ref=e277]: AI/ML
+          - link "Live Demo" [ref=e279] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e280]
+            - text: Live Demo
+        - generic [ref=e285]:
+          - generic [ref=e286]:
+            - heading "PayBox Fintech Solutions" [level=3] [ref=e287]
+            - generic [ref=e288]: fintech
+          - paragraph [ref=e289]: Microservices-based payment platform with Tap-to-Pay, cashback, and loyalty integrations
+          - generic [ref=e290]:
+            - heading "Tech Stack:" [level=4] [ref=e291]
+            - generic [ref=e292]:
+              - generic [ref=e293]: Node.js
+              - generic [ref=e294]: C#
+              - generic [ref=e295]: Kotlin
+              - generic [ref=e296]: Swift
+              - generic [ref=e297]: GCP
+              - generic [ref=e298]: Microservices
+        - generic [ref=e300]:
+          - generic [ref=e301]:
+            - heading "B2B Mobile Platforms" [level=3] [ref=e302]
+            - generic [ref=e303]: mobile
+          - paragraph [ref=e304]: Scalable mobile platforms achieving 10M+ downloads and 300+ white-label applications
+          - generic [ref=e305]:
+            - heading "Tech Stack:" [level=4] [ref=e306]
+            - generic [ref=e307]:
+              - generic [ref=e308]: Android
+              - generic [ref=e309]: iOS
+              - generic [ref=e310]: Kotlin
+              - generic [ref=e311]: Swift
+              - generic [ref=e312]: CI/CD
+      - generic [ref=e314]:
+        - heading "More Projects & Achievements" [level=3] [ref=e315]
+        - generic [ref=e316]:
+          - generic [ref=e317]:
+            - heading "Mobile Platforms" [level=4] [ref=e318]
+            - paragraph [ref=e319]: 10M+ downloads, 300+ white-label apps across Android and iOS platforms
+          - generic [ref=e320]:
+            - heading "Cost Optimization" [level=4] [ref=e321]
+            - paragraph [ref=e322]: Saved $3M+ annually through payment optimization and architecture improvements
+          - generic [ref=e323]:
+            - heading "Team Leadership" [level=4] [ref=e324]
+            - paragraph [ref=e325]: Managed 20+ engineers across multiple teams and technologies
+    - generic [ref=e328]:
+      - generic [ref=e329]:
+        - heading "Get In Touch" [level=2] [ref=e330]
+        - paragraph [ref=e331]: Ready to collaborate on your next project? Let's discuss how I can help bring your ideas to life.
+      - generic [ref=e333]:
+        - generic [ref=e334]:
+          - generic [ref=e335]:
+            - heading "Contact Information" [level=3] [ref=e336]
+            - generic [ref=e337]:
+              - generic [ref=e338]:
+                - img [ref=e340]
+                - generic [ref=e343]:
+                  - paragraph [ref=e344]: Email
+                  - link "ordi1985@gmail.com" [ref=e345] [cursor=pointer]:
+                    - /url: mailto:ordi1985@gmail.com
+              - generic [ref=e346]:
+                - img [ref=e348]
+                - generic [ref=e350]:
+                  - paragraph [ref=e351]: Phone
+                  - link "+972-54-7917154" [ref=e352] [cursor=pointer]:
+                    - /url: tel:+972-54-7917154
+              - generic [ref=e353]:
+                - img [ref=e355]
+                - generic [ref=e358]:
+                  - paragraph [ref=e359]: Location
+                  - paragraph [ref=e360]: Ramat-Gan, Israel
+          - generic [ref=e361]:
+            - heading "Follow Me" [level=3] [ref=e362]
+            - generic [ref=e363]:
+              - link [ref=e364] [cursor=pointer]:
+                - /url: https://github.com
+                - img [ref=e365]
+              - link [ref=e368] [cursor=pointer]:
+                - /url: https://linkedin.com
+                - img [ref=e369]
+              - link [ref=e373] [cursor=pointer]:
+                - /url: https://twitter.com
+                - img [ref=e374]
+        - generic [ref=e376]:
+          - heading "Send a Message" [level=3] [ref=e377]
+          - generic [ref=e378]:
+            - generic [ref=e379]:
+              - generic [ref=e380]:
+                - generic [ref=e381]: Name
+                - textbox "Name" [ref=e382]:
+                  - /placeholder: Your name
+              - generic [ref=e383]:
+                - generic [ref=e384]: Email
+                - textbox "Email" [ref=e385]:
+                  - /placeholder: your.email@example.com
+            - generic [ref=e386]:
+              - generic [ref=e387]: Subject
+              - textbox "Subject" [ref=e388]:
+                - /placeholder: What's this about?
+            - generic [ref=e389]:
+              - generic [ref=e390]: Message
+              - textbox "Message" [ref=e391]:
+                - /placeholder: Tell me about your project...
+            - button "Send Message" [ref=e392]:
+              - img [ref=e393]
+              - text: Send Message
+  - contentinfo [ref=e396]:
+    - paragraph [ref=e398]: © 2024 Or Delevski. All rights reserved.
+  - button "Open Next.js Dev Tools" [ref=e404] [cursor=pointer]:
+    - img [ref=e405]
+  - alert [ref=e409]
+```

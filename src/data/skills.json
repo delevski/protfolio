@@ -1,0 +1,380 @@
+[
+  {
+    "name": "docx",
+    "description": "Create and edit Microsoft Word documents with formatting, comments, and tracked changes",
+    "usage": "https://github.com/anthropics/skills/tree/main/document-skills/docx",
+    "category": "Document Skills"
+  },
+  {
+    "name": "pdf",
+    "description": "Extract content from PDFs, split/merge documents, or create new ones",
+    "usage": "https://github.com/anthropics/skills/tree/main/document-skills/pdf",
+    "category": "Document Skills"
+  },
+  {
+    "name": "pptx",
+    "description": "Generate and edit PowerPoint presentations",
+    "usage": "https://github.com/anthropics/skills/tree/main/document-skills/pptx",
+    "category": "Document Skills"
+  },
+  {
+    "name": "xlsx",
+    "description": "Manipulate Excel files, formulas, tables, and charts",
+    "usage": "https://github.com/anthropics/skills/tree/main/document-skills/xlsx",
+    "category": "Document Skills"
+  },
+  {
+    "name": "algorithmic-art",
+    "description": "Create generative art using p5.js",
+    "usage": "https://github.com/anthropics/skills/tree/main/algorithmic-art",
+    "category": "Creative & Design"
+  },
+  {
+    "name": "canvas-design",
+    "description": "Render layout-based visual designs in PNG/PDF",
+    "usage": "https://github.com/anthropics/skills/tree/main/canvas-design",
+    "category": "Creative & Design"
+  },
+  {
+    "name": "slack-gif-creator",
+    "description": "Generate Slack-optimized animated GIFs",
+    "usage": "https://github.com/anthropics/skills/tree/main/slack-gif-creator",
+    "category": "Creative & Design"
+  },
+  {
+    "name": "brand-guidelines",
+    "description": "Apply company branding to outputs",
+    "usage": "https://github.com/anthropics/skills/tree/main/brand-guidelines",
+    "category": "Creative & Design"
+  },
+  {
+    "name": "theme-factory",
+    "description": "Create and apply visual themes for documents",
+    "usage": "https://github.com/anthropics/skills/tree/main/theme-factory",
+    "category": "Creative & Design"
+  },
+  {
+    "name": "artifacts-builder",
+    "description": "Generate clean HTML/CSS/React UI components",
+    "usage": "https://github.com/anthropics/skills/tree/main/artifacts-builder",
+    "category": "Development & Code Tools"
+  },
+  {
+    "name": "MCP Server",
+    "description": "Build Claude-compatible API connectors",
+    "usage": "https://github.com/anthropics/skills/tree/main/mcp-builder",
+    "category": "Development & Code Tools"
+  },
+  {
+    "name": "Changelog Generator",
+    "description": "Create changelogs from commit history",
+    "usage": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/changelog-generator",
+    "category": "Development & Code Tools"
+  },
+  {
+    "name": "using-git-worktrees",
+    "description": "Manage feature branches safely in isolated Git worktrees",
+    "usage": "https://github.com/obra/superpowers/tree/main/skills/using-git-worktrees",
+    "category": "Development & Code Tools"
+  },
+  {
+    "name": "test-driven-development",
+    "description": "Write tests before implementation to drive development",
+    "usage": "https://github.com/obra/superpowers/tree/main/skills/test-driven-development",
+    "category": "Development & Code Tools"
+  },
+  {
+    "name": "subagent-driven-development",
+    "description": "Use multiple Claude subagents to coordinate complex implementations",
+    "usage": "https://github.com/obra/superpowers/tree/main/skills/subagent-driven-development",
+    "category": "Development & Code Tools"
+  },
+  {
+    "name": "executing-plans",
+    "description": "Execute structured plans with checkpoints and verification steps",
+    "usage": "https://github.com/obra/superpowers/tree/main/skills/executing-plans",
+    "category": "Development & Code Tools"
+  },
+  {
+    "name": "finishing-a-development-branch",
+    "description": "Complete development branches with testing and review flow",
+    "usage": "https://github.com/obra/superpowers/tree/main/skills/finishing-a-development-branch",
+    "category": "Development & Code Tools"
+  },
+  {
+    "name": "preserving-productive-tensions",
+    "description": "Manage architectural decisions by preserving competing viewpoints to balance innovation and stability",
+    "usage": "https://github.com/obra/superpowers-skills/tree/main/skills/architecture/preserving-productive-tensions",
+    "category": "Development & Code Tools"
+  },
+  {
+    "name": "csv-data-summarizer",
+    "description": "Generate statistics and charts from CSVs",
+    "usage": "https://github.com/coffeefuelbump/csv-data-summarizer-claude-skill",
+    "category": "Data & Analysis"
+  },
+  {
+    "name": "root-cause-tracing",
+    "description": "Trace and diagnose the source of data or logic errors",
+    "usage": "https://github.com/obra/superpowers/tree/main/skills/root-cause-tracing",
+    "category": "Data & Analysis"
+  },
+  {
+    "name": "article-extractor",
+    "description": "Extract full content from web articles",
+    "usage": "https://github.com/michalparkola/tapestry-skills-for-claude-code/tree/main/article-extractor",
+    "category": "Writing & Research"
+  },
+  {
+    "name": "Content Research Writer",
+    "description": "Research and refine written content with feedback",
+    "usage": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/content-research-writer",
+    "category": "Writing & Research"
+  },
+  {
+    "name": "internal-comms",
+    "description": "Draft formal internal comms and reports",
+    "usage": "https://github.com/anthropics/skills/tree/main/internal-comms",
+    "category": "Writing & Research"
+  },
+  {
+    "name": "writing-plans",
+    "description": "Create structured written plans with clear milestones",
+    "usage": "https://github.com/obra/superpowers/tree/main/skills/writing-plans",
+    "category": "Writing & Research"
+  },
+  {
+    "name": "writing-skills",
+    "description": "Enhance instructional and technical writing quality",
+    "usage": "https://github.com/obra/superpowers/tree/main/skills/writing-skills",
+    "category": "Writing & Research"
+  },
+  {
+    "name": "brainstorming",
+    "description": "Facilitate creative idea generation sessions",
+    "usage": "https://github.com/obra/superpowers/tree/main/skills/brainstorming",
+    "category": "Writing & Research"
+  },
+  {
+    "name": "tapestry",
+    "description": "Build a linked knowledge graph from documents",
+    "usage": "https://github.com/michalparkola/tapestry-skills-for-claude-code/tree/main/tapestry",
+    "category": "Learning & Knowledge"
+  },
+  {
+    "name": "ship-learn-next",
+    "description": "Recommend next steps based on feedback loops",
+    "usage": "https://github.com/michalparkola/tapestry-skills-for-claude-code/tree/main/ship-learn-next",
+    "category": "Learning & Knowledge"
+  },
+  {
+    "name": "using-superpowers",
+    "description": "Learn and apply best practices for Superpowers workflows",
+    "usage": "https://github.com/obra/superpowers/tree/main/skills/using-superpowers",
+    "category": "Learning & Knowledge"
+  },
+  {
+    "name": "sharing-skills",
+    "description": "Learn how to contribute new skills via pull requests",
+    "usage": "https://github.com/obra/superpowers/tree/main/skills/sharing-skills",
+    "category": "Learning & Knowledge"
+  },
+  {
+    "name": "collision-zone-thinking",
+    "description": "Combine unrelated concepts to find new creative or problem-solving connections",
+    "usage": "https://github.com/obra/superpowers-skills/tree/main/skills/problem-solving/collision-zone-thinking",
+    "category": "Learning & Knowledge"
+  },
+  {
+    "name": "inversion-exercise",
+    "description": "Flip assumptions to uncover hidden insights and constraints",
+    "usage": "https://github.com/obra/superpowers-skills/tree/main/skills/problem-solving/inversion-exercise",
+    "category": "Learning & Knowledge"
+  },
+  {
+    "name": "meta-pattern-recognition",
+    "description": "Identify patterns across domains to uncover universal principles",
+    "usage": "https://github.com/obra/superpowers-skills/tree/main/skills/problem-solving/meta-pattern-recognition",
+    "category": "Learning & Knowledge"
+  },
+  {
+    "name": "scale-game",
+    "description": "Stress-test ideas at extreme scales to expose hidden weaknesses or truths",
+    "usage": "https://github.com/obra/superpowers-skills/tree/main/skills/problem-solving/scale-game",
+    "category": "Learning & Knowledge"
+  },
+  {
+    "name": "simplification-cascades",
+    "description": "Reduce complexity by discovering insights that simplify multiple elements at once",
+    "usage": "https://github.com/obra/superpowers-skills/tree/main/skills/problem-solving/simplification-cascades",
+    "category": "Learning & Knowledge"
+  },
+  {
+    "name": "tracing-knowledge-lineages",
+    "description": "Track how ideas evolve across iterations and influences",
+    "usage": "https://github.com/obra/superpowers-skills/tree/main/skills/research/tracing-knowledge-lineages",
+    "category": "Learning & Knowledge"
+  },
+  {
+    "name": "youtube-transcript",
+    "description": "Summarize YouTube transcripts",
+    "usage": "https://github.com/michalparkola/tapestry-skills-for-claude-code/tree/main/youtube-transcript",
+    "category": "Media & Content"
+  },
+  {
+    "name": "claude-epub-skill",
+    "description": "Parse and analyze EPUB eBooks",
+    "usage": "https://github.com/smerchek/claude-epub-skill",
+    "category": "Media & Content"
+  },
+  {
+    "name": "Image Enhancer",
+    "description": "Improve resolution and clarity of screenshots",
+    "usage": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/image-enhancer",
+    "category": "Media & Content"
+  },
+  {
+    "name": "Video Downloader",
+    "description": "Download YouTube videos for use in Claude",
+    "usage": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/video-downloader",
+    "category": "Media & Content"
+  },
+  {
+    "name": "Meeting Insights Analyzer",
+    "description": "Analyze meeting dynamics and communication patterns",
+    "usage": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/meeting-insights-analyzer",
+    "category": "Collaboration & Project Management"
+  },
+  {
+    "name": "Notion Integration Skills",
+    "description": "Official Notion connectors for Claude",
+    "usage": "https://notiondevs.notion.site/Notion-Skills-for-Claude-28da4445d27180c7af1df7d8615723d0",
+    "category": "Collaboration & Project Management"
+  },
+  {
+    "name": "commands",
+    "description": "Manage and automate recurring project commands",
+    "usage": "https://github.com/obra/superpowers/tree/main/skills/commands",
+    "category": "Collaboration & Project Management"
+  },
+  {
+    "name": "receiving-code-review",
+    "description": "Process and apply code review feedback",
+    "usage": "https://github.com/obra/superpowers/tree/main/skills/receiving-code-review",
+    "category": "Collaboration & Project Management"
+  },
+  {
+    "name": "requesting-code-review",
+    "description": "Request and manage structured code reviews",
+    "usage": "https://github.com/obra/superpowers/tree/main/skills/requesting-code-review",
+    "category": "Collaboration & Project Management"
+  },
+  {
+    "name": "dispatching-parallel-agents",
+    "description": "Coordinate multiple Claude subagents on shared tasks",
+    "usage": "https://github.com/obra/superpowers/tree/main/skills/dispatching-parallel-agents",
+    "category": "Collaboration & Project Management"
+  },
+  {
+    "name": "remembering-conversations",
+    "description": "Recall facts, insights, and context from past Claude Code sessions",
+    "usage": "https://github.com/obra/superpowers-skills/tree/main/skills/collaboration/remembering-conversations",
+    "category": "Collaboration & Project Management"
+  },
+  {
+    "name": "webapp-testing",
+    "description": "UI test automation using Playwright",
+    "usage": "https://github.com/anthropics/skills/tree/main/webapp-testing",
+    "category": "Security & Testing"
+  },
+  {
+    "name": "ffuf_claude_skill",
+    "description": "Fuzz test web apps with FFUF + Claude",
+    "usage": "https://github.com/jthack/ffuf_claude_skill",
+    "category": "Security & Testing"
+  },
+  {
+    "name": "defense-in-depth",
+    "description": "Implement multi-layered testing and security best practices",
+    "usage": "https://github.com/obra/superpowers/tree/main/skills/defense-in-depth",
+    "category": "Security & Testing"
+  },
+  {
+    "name": "systematic-debugging",
+    "description": "Structured debugging with hypothesis testing and validation",
+    "usage": "https://github.com/obra/superpowers/tree/main/skills/systematic-debugging",
+    "category": "Security & Testing"
+  },
+  {
+    "name": "testing-anti-patterns",
+    "description": "Identify and prevent testing anti-patterns",
+    "usage": "https://github.com/obra/superpowers/tree/main/skills/testing-anti-patterns",
+    "category": "Security & Testing"
+  },
+  {
+    "name": "testing-skills-with-subagents",
+    "description": "Verify new skills using subagents and test cycles",
+    "usage": "https://github.com/obra/superpowers/tree/main/skills/testing-skills-with-subagents",
+    "category": "Security & Testing"
+  },
+  {
+    "name": "verification-before-completion",
+    "description": "Run verification checks before closing tasks",
+    "usage": "https://github.com/obra/superpowers/tree/main/skills/verification-before-completion",
+    "category": "Security & Testing"
+  },
+  {
+    "name": "condition-based-waiting",
+    "description": "Use logical conditions to control test flow timing",
+    "usage": "https://github.com/obra/superpowers/tree/main/skills/condition-based-waiting",
+    "category": "Security & Testing"
+  },
+  {
+    "name": "file-organizer",
+    "description": "Clean up file structures, rename documents",
+    "usage": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/file-organizer",
+    "category": "Utility & Automation"
+  },
+  {
+    "name": "invoice-organizer",
+    "description": "Parse and categorize invoices",
+    "usage": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/invoice-organizer",
+    "category": "Utility & Automation"
+  },
+  {
+    "name": "raffle-winner-picker",
+    "description": "Pick winners using secure randomness",
+    "usage": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/raffle-winner-picker",
+    "category": "Utility & Automation"
+  },
+  {
+    "name": "skill-creator",
+    "description": "Build your own skill interactively",
+    "usage": "https://github.com/anthropics/skills/tree/main/skill-creator",
+    "category": "Utility & Automation"
+  },
+  {
+    "name": "template-skill",
+    "description": "A starting template for new skills",
+    "usage": "https://github.com/anthropics/skills/tree/main/template-skill",
+    "category": "Utility & Automation"
+  },
+  {
+    "name": "using-superpowers",
+    "description": "Automate Superpowers workflows and validation tasks",
+    "usage": "https://github.com/obra/superpowers/tree/main/skills/using-superpowers",
+    "category": "Utility & Automation"
+  },
+  {
+    "name": "gardening-skills-wiki",
+    "description": "Maintain the skills wiki, ensuring naming consistency and metadata quality",
+    "usage": "https://github.com/obra/superpowers-skills/tree/main/skills/meta/gardening-skills-wiki",
+    "category": "Utility & Automation"
+  },
+  {
+    "name": "pulling-updates-from-skills-repository",
+    "description": "Sync and pull the latest skill updates from repositories",
+    "usage": "https://github.com/obra/superpowers-skills/tree/main/skills/meta/pulling-updates-from-skills-repository",
+    "category": "Utility & Automation"
+  }
+]
