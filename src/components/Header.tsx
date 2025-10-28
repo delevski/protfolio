@@ -24,8 +24,10 @@ const Header = () => {
   }, []);
 
   const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    if (!isDarkMode) {
+    const newDarkMode = !isDarkMode;
+    setIsDarkMode(newDarkMode);
+    
+    if (newDarkMode) {
       document.documentElement.classList.add('dark');
       localStorage.setItem('theme', 'dark');
     } else {
