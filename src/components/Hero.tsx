@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { ArrowDown, Download } from 'lucide-react';
 import { personalInfo } from '@/data';
+import Image from 'next/image';
 
 const Hero = () => {
   const handleDownloadCV = () => {
@@ -64,23 +65,44 @@ AI/ML: OpenAI, LangChain, LangGraph, Autonomous Agents, Gemini, Computer Vision
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto"
         >
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6"
-          >
-            {personalInfo.name}
-          </motion.h1>
-          
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-2xl md:text-3xl text-blue-600 dark:text-blue-400 mb-8"
-          >
-            {personalInfo.title}
-          </motion.h2>
+          <div className="flex flex-col lg:flex-row items-center gap-8 mb-8">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="flex-shrink-0"
+            >
+              <div className="relative w-48 h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden border-4 border-blue-600 shadow-2xl">
+                <Image
+                  src="/profile.jpg"
+                  alt="Or Delevski"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </motion.div>
+            
+            <div className="text-center lg:text-left">
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6"
+              >
+                {personalInfo.name}
+              </motion.h1>
+              
+              <motion.h2
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="text-2xl md:text-3xl text-blue-600 dark:text-blue-400 mb-8"
+              >
+                {personalInfo.title}
+              </motion.h2>
+            </div>
+          </div>
           
           <motion.p
             initial={{ opacity: 0, y: 30 }}
@@ -94,7 +116,7 @@ AI/ML: OpenAI, LangChain, LangGraph, Autonomous Agents, Gemini, Computer Vision
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            transition={{ duration: 0.8, delay: 1.0 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <motion.a
