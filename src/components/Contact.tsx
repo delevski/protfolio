@@ -126,7 +126,7 @@ const Contact = () => {
                   <motion.a
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    href="https://github.com"
+                    href="https://github.com/delevski"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 bg-gray-700 hover:bg-gray-800 rounded-lg flex items-center justify-center transition-colors duration-200"
@@ -136,7 +136,7 @@ const Contact = () => {
                   <motion.a
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    href="https://linkedin.com"
+                    href="https://linkedin.com/in/delevskior"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 bg-blue-600 hover:bg-blue-700 rounded-lg flex items-center justify-center transition-colors duration-200"

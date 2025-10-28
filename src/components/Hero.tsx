@@ -111,6 +111,7 @@ AI/ML: OpenAI, LangChain, LangGraph, Autonomous Agents, Gemini, Computer Vision
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
               className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors duration-200"
             >
               View Projects
