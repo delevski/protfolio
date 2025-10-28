@@ -14,25 +14,31 @@ const Header = () => {
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
     
+    console.log('Theme initialization:', { savedTheme, prefersDark });
     setIsDarkMode(prefersDark);
     
     if (prefersDark) {
       document.documentElement.classList.add('dark');
+      console.log('Added dark class to html');
     } else {
       document.documentElement.classList.remove('dark');
+      console.log('Removed dark class from html');
     }
   }, []);
 
   const toggleDarkMode = () => {
     const newDarkMode = !isDarkMode;
+    console.log('Toggling dark mode:', { current: isDarkMode, new: newDarkMode });
     setIsDarkMode(newDarkMode);
     
     if (newDarkMode) {
       document.documentElement.classList.add('dark');
       localStorage.setItem('theme', 'dark');
+      console.log('Switched to dark mode');
     } else {
       document.documentElement.classList.remove('dark');
       localStorage.setItem('theme', 'light');
+      console.log('Switched to light mode');
     }
   };
 

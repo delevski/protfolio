@@ -4,6 +4,15 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Ensure dark mode works properly */
+html.dark {
+  color-scheme: dark;
+}
+
+html:not(.dark) {
+  color-scheme: light;
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
