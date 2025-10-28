@@ -7,16 +7,16 @@ import Link from 'next/link';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('theme') === 'dark';
-    }
-    return false;
-  });
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
-    // Apply the initial theme
-    if (isDarkMode) {
+    // Check localStorage on mount
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    
+    setIsDarkMode(prefersDark);
+    
+    if (prefersDark) {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
