@@ -72,12 +72,12 @@ AI/ML: OpenAI, LangChain, LangGraph, Autonomous Agents, Gemini, Computer Vision
               transition={{ duration: 0.8, delay: 0.3 }}
               className="flex-shrink-0"
             >
-              <div className="relative w-48 h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden border-4 border-blue-600 shadow-2xl">
+              <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden border-4 border-blue-600 shadow-2xl">
                 <Image
                   src="/profile.jpg"
                   alt="Or Delevski"
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
                   priority
                 />
               </div>
