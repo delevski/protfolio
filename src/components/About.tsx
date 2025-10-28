@@ -15,8 +15,8 @@ const About = () => {
           viewport={{ once: true }}
           className="max-w-6xl mx-auto"
         >
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
               About Me
             </h2>
             <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
@@ -31,8 +31,8 @@ const About = () => {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl">
-                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+              <div className="bg-gray-50 dark:bg-gray-800 p-6 sm:p-8 rounded-xl">
+                <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white mb-4 sm:mb-6">
                   Personal Information
                 </h3>
                 <div className="space-y-4">
@@ -55,8 +55,8 @@ const About = () => {
                 </div>
               </div>
 
-              <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl">
-                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+              <div className="bg-gray-50 dark:bg-gray-800 p-6 sm:p-8 rounded-xl">
+                <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white mb-4 sm:mb-6">
                   Professional Summary
                 </h3>
                 <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -73,7 +73,7 @@ const About = () => {
               viewport={{ once: true }}
               className="space-y-8"
             >
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+              <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white mb-4 sm:mb-6">
                 Professional Experience
               </h3>
               

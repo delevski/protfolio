@@ -88,7 +88,7 @@ AI/ML: OpenAI, LangChain, LangGraph, Autonomous Agents, Gemini, Computer Vision
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6"
               >
                 {personalInfo.name}
               </motion.h1>
@@ -97,7 +97,7 @@ AI/ML: OpenAI, LangChain, LangGraph, Autonomous Agents, Gemini, Computer Vision
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-2xl md:text-3xl text-blue-600 dark:text-blue-400 mb-8"
+                className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-blue-600 dark:text-blue-400 mb-6 sm:mb-8"
               >
                 {personalInfo.title}
               </motion.h2>
@@ -108,7 +108,7 @@ AI/ML: OpenAI, LangChain, LangGraph, Autonomous Agents, Gemini, Computer Vision
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4"
           >
             {personalInfo.summary}
           </motion.p>
@@ -124,9 +124,9 @@ AI/ML: OpenAI, LangChain, LangGraph, Autonomous Agents, Gemini, Computer Vision
               whileTap={{ scale: 0.95 }}
               href="/cv.pdf"
               download
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors duration-200 flex items-center gap-2"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-lg text-base sm:text-lg font-semibold transition-colors duration-200 flex items-center gap-2"
             >
-              <Download className="w-5 h-5" />
+              <Download className="w-4 h-4 sm:w-5 sm:h-5" />
               Download CV
             </motion.a>
             
@@ -134,7 +134,7 @@ AI/ML: OpenAI, LangChain, LangGraph, Autonomous Agents, Gemini, Computer Vision
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-              className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors duration-200"
+              className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-6 py-3 sm:px-8 sm:py-4 rounded-lg text-base sm:text-lg font-semibold transition-colors duration-200"
             >
               View Projects
             </motion.button>
