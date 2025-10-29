@@ -111,7 +111,8 @@ export const projects: Project[] = [
     title: "PayBox Fintech Solutions",
     description: "Microservices-based payment platform with Tap-to-Pay, cashback, and loyalty integrations",
     techStack: ["Node.js", "C#", "Kotlin", "Swift", "GCP", "Microservices"],
-    category: "fintech"
+    category: "fintech",
+    googlePlayUrl: "https://play.google.com/store/apps/details?id=com.payboxapp"
   },
   {
     id: "mobile-platforms",

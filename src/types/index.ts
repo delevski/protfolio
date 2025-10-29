@@ -18,6 +18,7 @@ export interface Project {
   image?: string;
   githubUrl?: string;
   liveUrl?: string;
+  googlePlayUrl?: string;
   category: 'fintech' | 'mobile' | 'ai' | 'web' | 'automation';
 }
 

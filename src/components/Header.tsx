@@ -80,6 +80,7 @@ const navItems = [
             <button
               onClick={toggleDarkMode}
               className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
+              aria-label="Toggle theme"
             >
               {mounted ? (
                 isDarkMode ? (
@@ -99,6 +100,7 @@ const navItems = [
             <button
               onClick={toggleDarkMode}
               className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
+              aria-label="Toggle theme"
             >
               {mounted ? (
                 isDarkMode ? (
@@ -127,6 +129,7 @@ const navItems = [
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden mt-2 pb-3"
+            data-testid="mobile-nav"
           >
             <div className="flex flex-col space-y-2">
               {navItems.map((item) => (

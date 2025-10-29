@@ -89,6 +89,7 @@ AI/ML: OpenAI, LangChain, LangGraph, Autonomous Agents, Gemini, Computer Vision
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6"
+                data-testid="hero-name"
               >
                 {personalInfo.name}
               </motion.h1>
@@ -98,6 +99,7 @@ AI/ML: OpenAI, LangChain, LangGraph, Autonomous Agents, Gemini, Computer Vision
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-blue-600 dark:text-blue-400 mb-6 sm:mb-8"
+                data-testid="hero-title"
               >
                 {personalInfo.title}
               </motion.h2>

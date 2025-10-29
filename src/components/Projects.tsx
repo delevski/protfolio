@@ -102,7 +102,7 @@ const Projects = () => {
                     </div>
                   </div>
                   
-                  <div className="flex gap-4">
+                  <div className="flex flex-wrap gap-4">
                     {project.githubUrl && (
                       <a
                         href={project.githubUrl}
@@ -112,6 +112,19 @@ const Projects = () => {
                       >
                         <Github className="w-4 h-4" />
                         GitHub
+                      </a>
+                    )}
+                    {project.googlePlayUrl && (
+                      <a
+                        href={project.googlePlayUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors duration-200"
+                        aria-label="View on Google Play"
+                      >
+                        {/* Simple Play triangle using CSS borders to avoid extra icon deps */}
+                        <span className="inline-block w-0 h-0 border-t-6 border-b-6 border-l-8 border-t-transparent border-b-transparent border-l-white" />
+                        Google Play
                       </a>
                     )}
                     {project.liveUrl && (
