@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X, Sun, Moon } from 'lucide-react';
-import Link from 'next/link';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,39 +15,49 @@ const Header = () => {
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
     
-    console.log('Theme initialization:', { savedTheme, prefersDark });
     setIsDarkMode(prefersDark);
     
     if (prefersDark) {
       document.documentElement.classList.add('dark');
-      console.log('Added dark class to html');
     } else {
       document.documentElement.classList.remove('dark');
-      console.log('Removed dark class from html');
     }
   }, []);
 
   const toggleDarkMode = () => {
     const newDarkMode = !isDarkMode;
-    console.log('Toggling dark mode:', { current: isDarkMode, new: newDarkMode });
     setIsDarkMode(newDarkMode);
     
     if (newDarkMode) {
       document.documentElement.classList.add('dark');
       localStorage.setItem('theme', 'dark');
-      console.log('Switched to dark mode');
     } else {
       document.documentElement.classList.remove('dark');
       localStorage.setItem('theme', 'light');
-      console.log('Switched to light mode');
     }
   };
 
-const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    e.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const headerHeight = 80; // approximate header height
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - headerHeight;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+    setIsMenuOpen(false);
+  };
+
+  const navItems = [
+    { name: 'Home', href: 'home' },
+    { name: 'About', href: 'about' },
+    { name: 'Projects', href: 'projects' },
+    { name: 'Contact', href: 'contact' },
   ];
 
   return (
@@ -69,13 +78,14 @@ const navItems = [
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <Link
+              <a
                 key={item.name}
-                href={item.href}
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+                href={`#${item.href}`}
+                onClick={(e) => scrollToSection(e, item.href)}
+                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 cursor-pointer"
               >
                 {item.name}
-              </Link>
+              </a>
             ))}
             <button
               onClick={toggleDarkMode}
@@ -133,14 +143,14 @@ const navItems = [
           >
             <div className="flex flex-col space-y-2">
               {navItems.map((item) => (
-                <Link
+                <a
                   key={item.name}
-                  href={item.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 py-2"
+                  href={`#${item.href}`}
+                  onClick={(e) => scrollToSection(e, item.href)}
+                  className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 py-2 cursor-pointer"
                 >
                   {item.name}
-                </Link>
+                </a>
               ))}
             </div>
           </motion.div>

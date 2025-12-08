@@ -51,6 +51,62 @@ export const experiences: Experience[] = [
 
 export const projects: Project[] = [
   {
+    id: "doto",
+    title: "DOTO",
+    description: "A community-driven platform to help others for free. Share knowledge, skills, and support with people in need.",
+    techStack: ["JavaScript", "Node.js", "React", "Community Platform"],
+    category: "web",
+    githubUrl: "https://github.com/delevski/DOTO"
+  },
+  {
+    id: "playground",
+    title: "Playground",
+    description: "Interactive code playground for experimenting with JavaScript and web technologies in a sandbox environment.",
+    techStack: ["JavaScript", "HTML", "CSS", "Web APIs"],
+    category: "web",
+    githubUrl: "https://github.com/delevski/Playground"
+  },
+  {
+    id: "feed-new",
+    title: "Feed New",
+    description: "Modern feed aggregator and news reader built with Python, featuring content curation and filtering capabilities.",
+    techStack: ["Python", "RSS", "API Integration", "Data Processing"],
+    category: "automation",
+    githubUrl: "https://github.com/delevski/feed-new"
+  },
+  {
+    id: "meme-generator",
+    title: "Meme Generator",
+    description: "Fun and easy-to-use meme generator with customizable templates, text overlays, and image manipulation features.",
+    techStack: ["CSS", "JavaScript", "HTML5 Canvas", "Image Processing"],
+    category: "web",
+    githubUrl: "https://github.com/delevski/meme-generator"
+  },
+  {
+    id: "lucky-wheel",
+    title: "Lucky Wheel",
+    description: "Interactive lucky wheel spinner for fun games and random selection. Customizable segments and smooth animations.",
+    techStack: ["TypeScript", "React", "CSS Animations", "Canvas API"],
+    category: "web",
+    githubUrl: "https://github.com/delevski/Lucky-Wheel"
+  },
+  {
+    id: "rag-test",
+    title: "RAG Test",
+    description: "Retrieval-Augmented Generation (RAG) storage system for specialized AI tasks with vector embeddings and semantic search.",
+    techStack: ["TypeScript", "AI/ML", "Vector DB", "LangChain", "Embeddings"],
+    category: "ai",
+    githubUrl: "https://github.com/delevski/RAG-test"
+  },
+  {
+    id: "portfolio-html",
+    title: "Portfolio Template",
+    description: "Clean and responsive HTML portfolio template showcasing projects and skills with modern design principles.",
+    techStack: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+    category: "web",
+    githubUrl: "https://github.com/delevski/protfolio"
+  },
+  {
     id: "fastapi-aws-ingestor",
     title: "FastAPI AWS Ingestor",
     description: "A production-ready FastAPI microservice that ingests JSON, validates and transforms it, then stores the data in AWS S3 or DynamoDB. Includes unit tests, Docker support, and comprehensive error handling.",
