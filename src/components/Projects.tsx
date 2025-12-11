@@ -70,39 +70,41 @@ const Projects = () => {
                 key={project.id}
                 variants={itemVariants}
                 whileHover={{ scale: 1.02, y: -5 }}
-                className="bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className="bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full"
               >
-                <div className="p-5 md:p-6">
-                  <div className="flex items-start justify-between mb-3">
-                    <h3 className="text-lg md:text-xl font-semibold text-gray-900 dark:text-white">
-                      {project.title}
-                    </h3>
-                    <span className={`px-3 py-1 rounded-full text-sm font-medium ${getCategoryColor(project.category)}`}>
-                      {project.category}
-                    </span>
-                  </div>
-                  
-                  <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-                    {project.description}
-                  </p>
-                  
-                  <div className="mb-4">
-                    <h4 className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                      Tech Stack:
-                    </h4>
-                    <div className="flex flex-wrap gap-1.5">
-                      {project.techStack.map((tech, index) => (
-                        <span
-                          key={index}
-                          className="px-2 py-0.5 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full"
-                        >
-                          {tech}
-                        </span>
-                      ))}
+                <div className="p-5 md:p-6 flex flex-col h-full">
+                  <div className="flex-grow">
+                    <div className="flex items-start justify-between mb-3">
+                      <h3 className="text-lg md:text-xl font-semibold text-gray-900 dark:text-white">
+                        {project.title}
+                      </h3>
+                      <span className={`px-3 py-1 rounded-full text-sm font-medium ${getCategoryColor(project.category)}`}>
+                        {project.category}
+                      </span>
+                    </div>
+                    
+                    <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                      {project.description}
+                    </p>
+                    
+                    <div className="mb-4">
+                      <h4 className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                        Tech Stack:
+                      </h4>
+                      <div className="flex flex-wrap gap-1.5">
+                        {project.techStack.map((tech, index) => (
+                          <span
+                            key={index}
+                            className="px-2 py-0.5 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                   
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mt-auto pt-4">
                     {project.githubUrl && (
                       <a
                         href={project.githubUrl}

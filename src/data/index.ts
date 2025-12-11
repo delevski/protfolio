@@ -51,12 +51,22 @@ export const experiences: Experience[] = [
 
 export const projects: Project[] = [
   {
+    id: "trust-scan",
+    title: "Trust-Scan",
+    description: "The app allows users to search for a person by ID and instantly view their trust rating based on community feedback. It also enables users to submit anonymous ratings with comments, helping others make informed decisions.",
+    techStack: ["TypeScript", "React", "InstantDB", "Node.js"],
+    category: "web",
+    githubUrl: "https://github.com/delevski/Trust-scan",
+    liveUrl: "https://guileless-creponne-627b64.netlify.app/"
+  },
+  {
     id: "doto",
     title: "DOTO",
     description: "A community-driven platform to help others for free. Share knowledge, skills, and support with people in need.",
     techStack: ["JavaScript", "Node.js", "React", "Community Platform"],
     category: "web",
-    githubUrl: "https://github.com/delevski/DOTO"
+    githubUrl: "https://github.com/delevski/DOTO",
+    liveUrl: "https://doto-webapp.onrender.com/"
   },
   {
     id: "playground",
@@ -72,7 +82,8 @@ export const projects: Project[] = [
     description: "Modern feed aggregator and news reader built with Python, featuring content curation and filtering capabilities.",
     techStack: ["Python", "RSS", "API Integration", "Data Processing"],
     category: "automation",
-    githubUrl: "https://github.com/delevski/feed-new"
+    githubUrl: "https://github.com/delevski/feed-new",
+    liveUrl: "https://feed-news-nu.vercel.app/"
   },
   {
     id: "meme-generator",
@@ -80,7 +91,8 @@ export const projects: Project[] = [
     description: "Fun and easy-to-use meme generator with customizable templates, text overlays, and image manipulation features.",
     techStack: ["CSS", "JavaScript", "HTML5 Canvas", "Image Processing"],
     category: "web",
-    githubUrl: "https://github.com/delevski/meme-generator"
+    githubUrl: "https://github.com/delevski/meme-generator",
+    liveUrl: "https://meme-generator-six-flax.vercel.app/"
   },
   {
     id: "lucky-wheel",
@@ -88,7 +100,8 @@ export const projects: Project[] = [
     description: "Interactive lucky wheel spinner for fun games and random selection. Customizable segments and smooth animations.",
     techStack: ["TypeScript", "React", "CSS Animations", "Canvas API"],
     category: "web",
-    githubUrl: "https://github.com/delevski/Lucky-Wheel"
+    githubUrl: "https://github.com/delevski/Lucky-Wheel",
+    liveUrl: "https://lucky-wheel-kgkzw7oiy-oris-projects-1434bdbc.vercel.app/"
   },
   {
     id: "rag-test",
@@ -96,7 +109,8 @@ export const projects: Project[] = [
     description: "Retrieval-Augmented Generation (RAG) storage system for specialized AI tasks with vector embeddings and semantic search.",
     techStack: ["TypeScript", "AI/ML", "Vector DB", "LangChain", "Embeddings"],
     category: "ai",
-    githubUrl: "https://github.com/delevski/RAG-test"
+    githubUrl: "https://github.com/delevski/RAG-test",
+    liveUrl: "https://rag-test-beta.vercel.app/"
   },
   {
     id: "portfolio-html",
@@ -104,7 +118,8 @@ export const projects: Project[] = [
     description: "Clean and responsive HTML portfolio template showcasing projects and skills with modern design principles.",
     techStack: ["HTML", "CSS", "JavaScript", "Responsive Design"],
     category: "web",
-    githubUrl: "https://github.com/delevski/protfolio"
+    githubUrl: "https://github.com/delevski/protfolio",
+    liveUrl: "https://protfolio-tau-puce.vercel.app/"
   },
   {
     id: "fastapi-aws-ingestor",
@@ -120,7 +135,8 @@ export const projects: Project[] = [
     description: "Professional CRM system built with modern web technologies for customer relationship management and business process automation.",
     techStack: ["JavaScript", "Node.js", "React", "MongoDB"],
     category: "web",
-    githubUrl: "https://github.com/delevski/CRM-PRO-VB"
+    githubUrl: "https://github.com/delevski/CRM-PRO-VB",
+    liveUrl: "https://crm-pro-vb.vercel.app/"
   },
   {
     id: "scrape-websites",
