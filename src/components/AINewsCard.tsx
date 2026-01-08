@@ -1,7 +1,8 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, ExternalLink, Tag, Clock } from 'lucide-react';
+import { Calendar, ExternalLink, Tag, Clock, Newspaper } from 'lucide-react';
 import type { AINews } from '@/types';
 
 interface AINewsCardProps {
@@ -11,6 +12,12 @@ interface AINewsCardProps {
 }
 
 const AINewsCard = ({ news, variant = 'default', index = 0 }: AINewsCardProps) => {
+  const [imageError, setImageError] = useState(false);
+  
+  // Check if image URL is valid (not a placeholder like example.com)
+  const hasValidImage = news.imageUrl && 
+    !news.imageUrl.includes('example.com') && 
+    !imageError;
   const formatDate = (dateStr: string) => {
     const date = new Date(dateStr);
     return date.toLocaleDateString('en-US', {
@@ -51,37 +58,30 @@ const AINewsCard = ({ news, variant = 'default', index = 0 }: AINewsCardProps) =
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
         whileHover={{ scale: 1.01, y: -3 }}
-        className="group relative overflow-hidden rounded-xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300"
+        className="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700"
       >
-        {news.imageUrl && (
-          <div className="relative h-48 md:h-64 overflow-hidden">
+        <div className="relative h-48 md:h-64 overflow-hidden">
+          {hasValidImage ? (
             <img
               src={news.imageUrl}
               alt={news.title}
+              onError={() => setImageError(true)}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-            <div className="absolute bottom-4 left-4 right-4">
-              <span className={`inline-block px-3 py-1 text-xs font-medium rounded-full ${getCategoryColor(news.category)}`}>
-                {news.category}
-              </span>
-            </div>
-          </div>
-        )}
-        
-        <div className="p-6 md:p-8">
-          {!news.imageUrl && (
-            <div className="flex items-center gap-3 mb-4">
-              <span className={`px-3 py-1 text-xs font-medium rounded-full ${getCategoryColor(news.category)}`}>
-                {news.category}
-              </span>
-              <span className="flex items-center gap-1.5 text-gray-500 dark:text-gray-400 text-sm">
-                <Clock className="w-3.5 h-3.5" />
-                {getTimeAgo(news.createdAt)}
-              </span>
+          ) : (
+            <div className="w-full h-full bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-700 flex items-center justify-center">
+              <Newspaper className="w-16 h-16 text-white/30" />
             </div>
           )}
-          
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+          <div className="absolute bottom-4 left-4 right-4">
+            <span className={`inline-block px-3 py-1 text-xs font-medium rounded-full ${getCategoryColor(news.category)}`}>
+              {news.category}
+            </span>
+          </div>
+        </div>
+        
+        <div className="p-6 md:p-8">
           <h2 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
             {news.title}
           </h2>
@@ -131,25 +131,27 @@ const AINewsCard = ({ news, variant = 'default', index = 0 }: AINewsCardProps) =
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.3, delay: index * 0.05 }}
-        whileHover={{ scale: 1.02 }}
-        className="group flex gap-4 p-4 rounded-xl bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-all duration-200"
+        whileHover={{ scale: 1.01 }}
+        className="group flex gap-4 p-4 rounded-xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-800 transition-all duration-200"
       >
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-2">
             <span className={`px-2 py-0.5 text-xs font-medium rounded-full ${getCategoryColor(news.category)}`}>
               {news.category}
             </span>
+            <span className="text-xs text-gray-400 dark:text-gray-500">
+              {getTimeAgo(news.createdAt)}
+            </span>
           </div>
-          <h3 className="font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2 mb-1">
+          <h3 className="font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
             {news.title}
           </h3>
-          <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">{news.summary}</p>
         </div>
         <a
           href={news.sourceUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-shrink-0 self-center p-2 text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+          className="flex-shrink-0 self-center p-2 rounded-lg bg-gray-50 dark:bg-gray-700 text-gray-400 hover:bg-blue-50 hover:text-blue-600 dark:hover:bg-blue-900/30 dark:hover:text-blue-400 transition-colors"
         >
           <ExternalLink className="w-4 h-4" />
         </a>
@@ -164,18 +166,23 @@ const AINewsCard = ({ news, variant = 'default', index = 0 }: AINewsCardProps) =
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.08 }}
       whileHover={{ scale: 1.02, y: -5 }}
-      className="group relative overflow-hidden rounded-xl bg-gray-50 dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300"
+      className="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700"
     >
-      {news.imageUrl && (
-        <div className="relative h-48 overflow-hidden">
+      <div className="relative h-40 overflow-hidden">
+        {hasValidImage ? (
           <img
             src={news.imageUrl}
             alt={news.title}
+            onError={() => setImageError(true)}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-        </div>
-      )}
+        ) : (
+          <div className="w-full h-full bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-700 flex items-center justify-center">
+            <Newspaper className="w-10 h-10 text-white/30" />
+          </div>
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+      </div>
       
       <div className="p-5">
         <div className="flex items-center gap-2 mb-3">

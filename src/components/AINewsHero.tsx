@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Sparkles, TrendingUp, Calendar } from 'lucide-react';
+import { TrendingUp, Calendar } from 'lucide-react';
 import AINewsCard from './AINewsCard';
 import type { AINews } from '@/types';
 
@@ -25,38 +25,25 @@ const AINewsHero = ({ latestNews, currentDate }: AINewsHeroProps) => {
   const otherNews = latestNews.slice(1, 4);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
-      {/* Grid pattern overlay */}
-      <div 
-        className="absolute inset-0 opacity-[0.03] dark:opacity-[0.02]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}
-      />
-
-      <div className="relative container mx-auto px-4 py-12 md:py-16">
+    <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 via-white to-white dark:from-gray-800 dark:via-gray-900 dark:to-gray-900">
+      <div className="container mx-auto px-4 py-8 md:py-12">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-10"
+          className="text-center mb-8"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 text-blue-600 dark:text-blue-400 text-sm font-medium mb-4">
-            <Sparkles className="w-4 h-4" />
-            AI News Feed
-          </div>
-          
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-4">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-3">
             Today&apos;s <span className="text-blue-600 dark:text-blue-400">AI News</span>
           </h1>
           
-          <div className="flex items-center justify-center gap-2 text-gray-600 dark:text-gray-400">
+          <div className="flex items-center justify-center gap-2 text-gray-500 dark:text-gray-400">
             <Calendar className="w-4 h-4" />
             <span>{formatDate(currentDate)}</span>
           </div>
           
-          <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full mt-4"></div>
+          <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full mt-4"></div>
         </motion.div>
 
         {latestNews.length === 0 ? (

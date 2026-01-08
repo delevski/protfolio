@@ -33,7 +33,7 @@ const AINewsDateCard = ({ date, newsItems, index = 0 }: AINewsDateCardProps) => 
       whileHover={{ scale: 1.02, y: -5 }}
     >
       <Link href={`/ai-news/${date}`}>
-        <article className="group relative overflow-hidden rounded-xl bg-gray-50 dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+        <article className="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-800 shadow-sm hover:shadow-lg transition-all duration-300 h-full">
           <div className="p-6">
             {/* Date header */}
             <div className="flex items-start gap-4 mb-5">
