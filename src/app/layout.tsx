@@ -2,10 +2,6 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
-import Hero from '@/components/Hero';
-import About from '@/components/About';
-import Projects from '@/components/Projects';
-import Contact from '@/components/Contact';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -54,10 +50,7 @@ export default function RootLayout({
       <body className={`${inter.className} antialiased bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300`}>
         <Header />
         <main>
-          <Hero />
-          <About />
-          <Projects />
-          <Contact />
+          {children}
         </main>
         <footer className="bg-gray-900 dark:bg-black text-white py-8">
           <div className="container mx-auto px-4 text-center">

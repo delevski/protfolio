@@ -1,13 +1,21 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X, Sun, Moon, Newspaper, User } from 'lucide-react';
+
+type NavItem = {
+  name: string;
+  href: string;
+};
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     setMounted(true);
@@ -37,27 +45,9 @@ const Header = () => {
     }
   };
 
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
-    e.preventDefault();
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const headerHeight = 80; // approximate header height
-      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = elementPosition - headerHeight;
-      
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-    setIsMenuOpen(false);
-  };
-
-  const navItems = [
-    { name: 'Home', href: 'home' },
-    { name: 'About', href: 'about' },
-    { name: 'Projects', href: 'projects' },
-    { name: 'Contact', href: 'contact' },
+  const navItems: NavItem[] = [
+    { name: 'About me', href: '/' },
+    { name: 'AI News', href: '/ai-news' },
   ];
 
   return (
@@ -77,16 +67,25 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={`#${item.href}`}
-                onClick={(e) => scrollToSection(e, item.href)}
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 cursor-pointer"
-              >
-                {item.name}
-              </a>
-            ))}
+            {navItems.map((item) => {
+              const isActive = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
+              
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`flex items-center gap-1.5 transition-colors duration-200 cursor-pointer ${
+                    isActive
+                      ? 'text-blue-600 dark:text-blue-400 font-medium'
+                      : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
+                  }`}
+                >
+                  {item.name === 'About me' && <User className="w-4 h-4" />}
+                  {item.name === 'AI News' && <Newspaper className="w-4 h-4" />}
+                  {item.name}
+                </Link>
+              );
+            })}
             <button
               onClick={toggleDarkMode}
               className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
@@ -142,16 +141,26 @@ const Header = () => {
             data-testid="mobile-nav"
           >
             <div className="flex flex-col space-y-2">
-              {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={`#${item.href}`}
-                  onClick={(e) => scrollToSection(e, item.href)}
-                  className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 py-2 cursor-pointer"
-                >
-                  {item.name}
-                </a>
-              ))}
+              {navItems.map((item) => {
+                const isActive = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
+                
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`flex items-center gap-1.5 py-2 transition-colors duration-200 cursor-pointer ${
+                      isActive
+                        ? 'text-blue-600 dark:text-blue-400 font-medium'
+                        : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
+                    }`}
+                  >
+                    {item.name === 'About me' && <User className="w-4 h-4" />}
+                    {item.name === 'AI News' && <Newspaper className="w-4 h-4" />}
+                    {item.name}
+                  </Link>
+                );
+              })}
             </div>
           </motion.div>
         )}

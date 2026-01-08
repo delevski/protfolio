@@ -38,3 +38,28 @@ export interface PersonalInfo {
   phone: string;
   summary: string;
 }
+
+// AI News types
+export interface AINews {
+  id: string;
+  title: string;
+  summary: string;
+  content: string;
+  date: string;
+  sourceUrl: string;
+  imageUrl?: string;
+  category: string;
+  tags: string[];
+  createdAt: number;
+}
+
+export interface AINewsInput {
+  title: string;
+  summary: string;
+  content: string;
+  date: string;
+  sourceUrl: string;
+  imageUrl?: string;
+  category: string;
+  tags: string[];
+}
