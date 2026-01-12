@@ -97,7 +97,7 @@ export async function POST(request: NextRequest) {
 
     // Check if body is an array or single object
     const isArray = Array.isArray(body);
-    const items: unknown[] = isArray ? body : [body];
+    const items: unknown[] = isArray ? (body as unknown[]) : [body];
 
     if (items.length === 0) {
       return NextResponse.json(
