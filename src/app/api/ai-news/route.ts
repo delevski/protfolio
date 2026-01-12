@@ -2,10 +2,23 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getAdminDB } from '@/lib/instant-admin';
 import { id } from '@instantdb/admin';
 
-// Validate the incoming payload
-function validatePayload(data: unknown): { valid: boolean; error?: string } {
+type NewsPayload = {
+  title: string;
+  summary: string;
+  content: string;
+  date: string;
+  sourceUrl: string;
+  imageUrl?: string;
+  category: string;
+  tags?: string[];
+};
+
+// Validate a single news item
+function validateNewsItem(data: unknown, index?: number): { valid: boolean; error?: string } {
+  const prefix = index !== undefined ? `Item ${index + 1}: ` : '';
+  
   if (!data || typeof data !== 'object') {
-    return { valid: false, error: 'Invalid payload: expected an object' };
+    return { valid: false, error: `${prefix}Invalid payload: expected an object` };
   }
 
   const payload = data as Record<string, unknown>;
@@ -13,31 +26,38 @@ function validatePayload(data: unknown): { valid: boolean; error?: string } {
   const requiredFields = ['title', 'summary', 'content', 'date', 'sourceUrl', 'category'];
   for (const field of requiredFields) {
     if (!payload[field] || typeof payload[field] !== 'string') {
-      return { valid: false, error: `Missing or invalid required field: ${field}` };
+      return { valid: false, error: `${prefix}Missing or invalid required field: ${field}` };
     }
   }
 
   // Validate date format (YYYY-MM-DD)
   const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
   if (!dateRegex.test(payload.date as string)) {
-    return { valid: false, error: 'Invalid date format. Expected YYYY-MM-DD' };
+    return { valid: false, error: `${prefix}Invalid date format. Expected YYYY-MM-DD` };
   }
 
   // Validate tags if present
   if (payload.tags !== undefined) {
     if (!Array.isArray(payload.tags)) {
-      return { valid: false, error: 'Tags must be an array' };
+      return { valid: false, error: `${prefix}Tags must be an array` };
     }
     for (const tag of payload.tags) {
       if (typeof tag !== 'string') {
-        return { valid: false, error: 'All tags must be strings' };
+        return { valid: false, error: `${prefix}All tags must be strings` };
       }
     }
   }
 
-  // Validate imageUrl if present
-  if (payload.imageUrl !== undefined && typeof payload.imageUrl !== 'string') {
-    return { valid: false, error: 'imageUrl must be a string' };
+  // Validate imageUrl if present (must be a valid URL or empty)
+  if (payload.imageUrl !== undefined && payload.imageUrl !== null && payload.imageUrl !== '') {
+    if (typeof payload.imageUrl !== 'string') {
+      return { valid: false, error: `${prefix}imageUrl must be a string` };
+    }
+    // Check if it's a valid URL (starts with http:// or https://)
+    const imageUrl = payload.imageUrl as string;
+    if (!imageUrl.startsWith('http://') && !imageUrl.startsWith('https://')) {
+      // Not a valid URL - we'll just ignore it (set to empty string later)
+    }
   }
 
   return { valid: true };
@@ -75,55 +95,82 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Validate the payload
-    const validation = validatePayload(body);
-    if (!validation.valid) {
+    // Check if body is an array or single object
+    const isArray = Array.isArray(body);
+    const items: unknown[] = isArray ? body : [body];
+
+    if (items.length === 0) {
       return NextResponse.json(
-        { success: false, error: validation.error },
+        { success: false, error: 'Empty array provided' },
         { status: 400 }
       );
     }
 
-    const payload = body as {
-      title: string;
-      summary: string;
-      content: string;
-      date: string;
-      sourceUrl: string;
-      imageUrl?: string;
-      category: string;
-      tags?: string[];
-    };
+    // Validate all items first
+    for (let i = 0; i < items.length; i++) {
+      const validation = validateNewsItem(items[i], isArray ? i : undefined);
+      if (!validation.valid) {
+        return NextResponse.json(
+          { success: false, error: validation.error },
+          { status: 400 }
+        );
+      }
+    }
 
     // Get the admin database instance
     const adminDB = getAdminDB();
 
-    // Generate a unique ID for the record
-    const recordId = id();
+    // Create records for all items
+    const createdIds: string[] = [];
+    const transactions: ReturnType<typeof adminDB.tx.aiNews[string]['update']>[] = [];
 
-    // Create the AI news record
-    const aiNewsRecord = {
-      id: recordId,
-      title: payload.title,
-      summary: payload.summary,
-      content: payload.content,
-      date: payload.date,
-      sourceUrl: payload.sourceUrl,
-      imageUrl: payload.imageUrl || '',
-      category: payload.category,
-      tags: payload.tags || [],
-      createdAt: Date.now(),
-    };
+    for (const item of items) {
+      const payload = item as NewsPayload;
+      const recordId = id();
+      
+      // Only keep imageUrl if it's a valid URL
+      let imageUrl = '';
+      if (payload.imageUrl && 
+          (payload.imageUrl.startsWith('http://') || payload.imageUrl.startsWith('https://'))) {
+        imageUrl = payload.imageUrl;
+      }
 
-    // Insert the record into InstantDB
-    await adminDB.transact(
-      adminDB.tx.aiNews[recordId].update(aiNewsRecord)
-    );
+      const aiNewsRecord = {
+        id: recordId,
+        title: payload.title,
+        summary: payload.summary,
+        content: payload.content,
+        date: payload.date,
+        sourceUrl: payload.sourceUrl,
+        imageUrl: imageUrl,
+        category: payload.category,
+        tags: payload.tags || [],
+        createdAt: Date.now(),
+      };
 
-    return NextResponse.json(
-      { success: true, id: recordId },
-      { status: 201 }
-    );
+      transactions.push(adminDB.tx.aiNews[recordId].update(aiNewsRecord));
+      createdIds.push(recordId);
+    }
+
+    // Execute all transactions at once
+    await adminDB.transact(...transactions);
+
+    // Return response based on whether it was array or single item
+    if (isArray) {
+      return NextResponse.json(
+        { 
+          success: true, 
+          message: `Successfully created ${createdIds.length} news items`,
+          ids: createdIds 
+        },
+        { status: 201 }
+      );
+    } else {
+      return NextResponse.json(
+        { success: true, id: createdIds[0] },
+        { status: 201 }
+      );
+    }
   } catch (error) {
     console.error('Error creating AI news record:', error);
     return NextResponse.json(
@@ -140,4 +187,3 @@ export async function GET() {
     { status: 405 }
   );
 }
-
