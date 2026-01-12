@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, ExternalLink, Tag, Clock, Newspaper } from 'lucide-react';
+import { Calendar, ExternalLink, Tag, Clock } from 'lucide-react';
 import type { AINews } from '@/types';
 
 interface AINewsCardProps {
@@ -14,11 +14,17 @@ interface AINewsCardProps {
 const AINewsCard = ({ news, variant = 'default', index = 0 }: AINewsCardProps) => {
   const [imageError, setImageError] = useState(false);
   
+  // Default image URL
+  const DEFAULT_IMAGE_URL = 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800';
+  
   // Check if image URL is valid (must start with http/https and not be a placeholder)
   const hasValidImage = news.imageUrl && 
     (news.imageUrl.startsWith('http://') || news.imageUrl.startsWith('https://')) &&
     !news.imageUrl.includes('example.com') && 
     !imageError;
+  
+  // Use default image if no valid image
+  const imageUrl = hasValidImage ? news.imageUrl : DEFAULT_IMAGE_URL;
   const formatDate = (dateStr: string) => {
     const date = new Date(dateStr);
     return date.toLocaleDateString('en-US', {
@@ -68,18 +74,12 @@ const AINewsCard = ({ news, variant = 'default', index = 0 }: AINewsCardProps) =
           className="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 cursor-pointer"
         >
           <div className="relative h-48 md:h-64 overflow-hidden">
-            {hasValidImage ? (
-              <img
-                src={news.imageUrl}
-                alt={news.title}
-                onError={() => setImageError(true)}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            ) : (
-              <div className="w-full h-full bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-700 flex items-center justify-center">
-                <Newspaper className="w-16 h-16 text-white/30" />
-              </div>
-            )}
+            <img
+              src={imageUrl}
+              alt={news.title}
+              onError={() => setImageError(true)}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
             <div className="absolute bottom-4 left-4 right-4">
               <span className={`inline-block px-3 py-1 text-xs font-medium rounded-full ${getCategoryColor(news.category)}`}>
@@ -180,18 +180,12 @@ const AINewsCard = ({ news, variant = 'default', index = 0 }: AINewsCardProps) =
         className="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 cursor-pointer"
       >
         <div className="relative h-40 overflow-hidden">
-          {hasValidImage ? (
-            <img
-              src={news.imageUrl}
-              alt={news.title}
-              onError={() => setImageError(true)}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          ) : (
-            <div className="w-full h-full bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-700 flex items-center justify-center">
-              <Newspaper className="w-10 h-10 text-white/30" />
-            </div>
-          )}
+          <img
+            src={imageUrl}
+            alt={news.title}
+            onError={() => setImageError(true)}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
         </div>
         
