@@ -122,7 +122,6 @@ export async function POST(request: NextRequest) {
 
     // Create records for all items
     const createdIds: string[] = [];
-    const transactions: ReturnType<typeof adminDB.tx.aiNews[string]['update']>[] = [];
 
     for (const item of items) {
       const payload = item as NewsPayload;
@@ -148,12 +147,10 @@ export async function POST(request: NextRequest) {
         createdAt: Date.now(),
       };
 
-      transactions.push(adminDB.tx.aiNews[recordId].update(aiNewsRecord));
+      // Insert each record
+      await adminDB.transact(adminDB.tx.aiNews[recordId].update(aiNewsRecord));
       createdIds.push(recordId);
     }
-
-    // Execute all transactions at once
-    await adminDB.transact(...transactions);
 
     // Return response based on whether it was array or single item
     if (isArray) {
