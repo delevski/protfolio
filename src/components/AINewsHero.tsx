@@ -22,7 +22,7 @@ const AINewsHero = ({ latestNews, currentDate }: AINewsHeroProps) => {
   };
 
   const featuredNews = latestNews[0];
-  const otherNews = latestNews.slice(1, 4);
+  const otherNews = latestNews.slice(1); // Show ALL other news items
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 via-white to-white dark:from-gray-800 dark:via-gray-900 dark:to-gray-900">
@@ -69,13 +69,15 @@ const AINewsHero = ({ latestNews, currentDate }: AINewsHeroProps) => {
             
             {/* Side news list */}
             {otherNews.length > 0 && (
-              <div className="space-y-4">
+              <div className="flex flex-col">
                 <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">
-                  More from today
+                  More from today ({otherNews.length})
                 </h3>
-                {otherNews.map((news, idx) => (
-                  <AINewsCard key={news.id} news={news} variant="compact" index={idx + 1} />
-                ))}
+                <div className="space-y-3 max-h-[500px] overflow-y-auto pr-2 custom-scrollbar">
+                  {otherNews.map((news, idx) => (
+                    <AINewsCard key={news.id} news={news} variant="compact" index={idx + 1} />
+                  ))}
+                </div>
               </div>
             )}
           </div>
