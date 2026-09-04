@@ -1,9 +1,33 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useSyncExternalStore } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, ExternalLink, Tag, Clock } from 'lucide-react';
+import { Calendar, ExternalLink, Tag } from 'lucide-react';
 import type { AINews } from '@/types';
+
+let currentTime = 0;
+const timeAgoSubscribers = new Set<() => void>();
+let timeAgoInterval: ReturnType<typeof setInterval> | undefined;
+
+const subscribeToCurrentTime = (callback: () => void) => {
+  timeAgoSubscribers.add(callback);
+  if (!timeAgoInterval) {
+    currentTime = Date.now();
+    timeAgoInterval = setInterval(() => {
+      currentTime = Date.now();
+      timeAgoSubscribers.forEach((subscriber) => subscriber());
+    }, 60_000);
+  }
+  return () => {
+    timeAgoSubscribers.delete(callback);
+    if (timeAgoSubscribers.size === 0 && timeAgoInterval) {
+      clearInterval(timeAgoInterval);
+      timeAgoInterval = undefined;
+    }
+  };
+};
+const getCurrentTime = () => currentTime;
+const getServerTime = () => 0;
 
 interface AINewsCardProps {
   news: AINews;
@@ -13,6 +37,7 @@ interface AINewsCardProps {
 
 const AINewsCard = ({ news, variant = 'default', index = 0 }: AINewsCardProps) => {
   const [imageError, setImageError] = useState(false);
+  const now = useSyncExternalStore(subscribeToCurrentTime, getCurrentTime, getServerTime);
   
   // Default image URL
   const DEFAULT_IMAGE_URL = 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800';
@@ -36,7 +61,6 @@ const AINewsCard = ({ news, variant = 'default', index = 0 }: AINewsCardProps) =
   };
 
   const getTimeAgo = (timestamp: number) => {
-    const now = Date.now();
     const diff = now - timestamp;
     const hours = Math.floor(diff / (1000 * 60 * 60));
     const days = Math.floor(hours / 24);
