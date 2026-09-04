@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Calendar, ChevronRight, Newspaper } from 'lucide-react';
+import { ChevronRight, Newspaper } from 'lucide-react';
 import Link from 'next/link';
 import type { AINews } from '@/types';
 
