@@ -6,56 +6,6 @@ import { personalInfo } from '@/data';
 import Image from 'next/image';
 
 const Hero = () => {
-  const handleDownloadCV = () => {
-    // Create a simple PDF content (you can replace this with actual CV content)
-    const cvContent = `
-Or Delevski
-CTO / VP R&D & Technology Leader
-Ramat-Gan, Israel
-Email: ordi1985@gmail.com
-Phone: +972-54-7917154
-
-PROFESSIONAL SUMMARY
-Innovative and results-oriented technology leader with 15+ years of experience in R&D, product innovation, and scaling high-performance engineering teams. Expert in cloud architecture, AI-powered solutions, automation, and mobile platforms.
-
-EXPERIENCE
-
-CTO / VP R&D – Constrol (2023 – Present)
-• Built the company's technology organization from scratch, doubling revenue in one year
-• Designed and implemented BI, CRM, and SaaS platforms with real-time tracking
-• Introduced AI-driven solutions and workflow automation using n8n, Zapier, and MCP-based systems
-• Managed 18+ professionals, leading full-stack development in Next.js, React, C#, NestJS, and Python
-
-Head of R&D – PayBox (Bank Discount) (2019 – 2023)
-• Led 20+ engineers across 3 teams in building fintech solutions
-• Migrated monolith to microservices and designed event-driven architecture
-• Saved $3M+ annually through payment optimization
-• Built Tap-to-Pay, cashback, and loyalty integrations
-
-Head of Mobile – SpotOption / Dx.Exchange (2014 – 2019)
-• Led Android, iOS, QA teams to scale B2B fintech mobile platforms
-• Achieved 10M+ downloads and 300+ white-label apps
-• Introduced CI/CD automation and mobile product strategy
-
-TECHNICAL SKILLS
-Languages: Kotlin, Java, Go, JavaScript, TypeScript, C#, C++, SQL, Dart, Python
-Frameworks: React.js, Angular, Node.js, Nest.js, Next.js, Flutter, React Native, Unity
-Tools: MongoDB, PostgreSQL, Redis, Kafka, Docker, Jenkins, Git, AWS, GCP
-AI/ML: OpenAI, LangChain, LangGraph, Autonomous Agents, Gemini, Computer Vision
-    `;
-    
-    // Create blob and download
-    const blob = new Blob([cvContent], { type: 'text/plain' });
-    const url = window.URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'Or_Delevski_CV.txt';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    window.URL.revokeObjectURL(url);
-  };
-
   return (
     <section id="home" className="scroll-mt-28 md:scroll-mt-32 min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
       <div className="container mx-auto px-4 text-center">
