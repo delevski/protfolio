@@ -54,7 +54,7 @@ const Contact = () => {
               Get In Touch
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Ready to collaborate on your next project? Let's discuss how I can help bring your ideas to life.
+              Ready to collaborate on your next project? Let&apos;s discuss how I can help bring your ideas to life.
             </p>
             <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full mt-6"></div>
           </div>
