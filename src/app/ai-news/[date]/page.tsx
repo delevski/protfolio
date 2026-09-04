@@ -1,6 +1,6 @@
 'use client';
 
-import { use, useState, useEffect } from 'react';
+import { use } from 'react';
 import { motion } from 'framer-motion';
 import { db } from '@/lib/instant';
 import AINewsCard from '@/components/AINewsCard';
@@ -112,20 +112,8 @@ interface PageProps {
 
 export default function AINewsDatePage({ params }: PageProps) {
   const { date } = use(params);
-  const [useMockData, setUseMockData] = useState(false);
-  
-  // Query all AI news from InstantDB
+// Query all AI news from InstantDB
   const { isLoading, error, data } = db.useQuery({ aiNews: {} });
-
-  // Check if we should use mock data
-  useEffect(() => {
-    if (!isLoading && !error) {
-      const realNews = data?.aiNews || [];
-      if (realNews.length === 0) {
-        setUseMockData(true);
-      }
-    }
-  }, [isLoading, error, data]);
 
   const formatDateDisplay = (dateStr: string) => {
     const d = new Date(dateStr);
@@ -146,6 +134,7 @@ export default function AINewsDatePage({ params }: PageProps) {
 
   // Filter news for the specific date
   const realNews = data?.aiNews || [];
+  const useMockData = !isLoading && !error && realNews.length === 0;
   const allNews = useMockData ? MOCK_NEWS : (realNews as AINews[]);
   const dateNews = allNews
     .filter((item) => item.date === date)

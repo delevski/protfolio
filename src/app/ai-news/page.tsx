@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+
 import { motion } from 'framer-motion';
 import { db } from '@/lib/instant';
 import AINewsHero from '@/components/AINewsHero';
@@ -107,9 +107,7 @@ const MOCK_NEWS: AINews[] = [
 ];
 
 export default function AINewsPage() {
-  const [useMockData, setUseMockData] = useState(false);
-  
-  // Query all AI news from InstantDB
+// Query all AI news from InstantDB
   const { isLoading, error, data } = db.useQuery({ aiNews: {} });
 
   // Get current date in YYYY-MM-DD format
@@ -117,16 +115,6 @@ export default function AINewsPage() {
     const now = new Date();
     return now.toISOString().split('T')[0];
   };
-
-  // Check if we should use mock data (when no real data exists)
-  useEffect(() => {
-    if (!isLoading && !error) {
-      const realNews = data?.aiNews || [];
-      if (realNews.length === 0) {
-        setUseMockData(true);
-      }
-    }
-  }, [isLoading, error, data]);
 
   // Group news by date
   const groupNewsByDate = (newsItems: AINews[]) => {
@@ -153,6 +141,7 @@ export default function AINewsPage() {
 
   const currentDate = getCurrentDate();
   const realNews = data?.aiNews || [];
+  const useMockData = !isLoading && !error && realNews.length === 0;
   const allNews = useMockData ? MOCK_NEWS : (realNews as AINews[]);
   const groupedNews = groupNewsByDate(allNews);
   

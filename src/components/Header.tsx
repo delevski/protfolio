@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState, useSyncExternalStore } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -13,36 +13,27 @@ type NavItem = {
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
+  const mounted = useSyncExternalStore(() => () => {}, () => true, () => false);
+  const isDarkMode = useSyncExternalStore(
+    (callback) => {
+      window.addEventListener('themechange', callback);
+      return () => window.removeEventListener('themechange', callback);
+    },
+    () => {
+      const savedTheme = localStorage.getItem('theme');
+      return savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    },
+    () => false,
+  );
 
   useEffect(() => {
-    setMounted(true);
-    // Check localStorage on mount
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
-    
-    setIsDarkMode(prefersDark);
-    
-    if (prefersDark) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, []);
+    document.documentElement.classList.toggle('dark', isDarkMode);
+  }, [isDarkMode]);
 
   const toggleDarkMode = () => {
-    const newDarkMode = !isDarkMode;
-    setIsDarkMode(newDarkMode);
-    
-    if (newDarkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
+    localStorage.setItem('theme', isDarkMode ? 'light' : 'dark');
+    window.dispatchEvent(new Event('themechange'));
   };
 
   const navItems: NavItem[] = [

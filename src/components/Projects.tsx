@@ -52,7 +52,7 @@ const Projects = () => {
               Featured Projects
             </h2>
             <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Key projects and platforms I've built and led throughout my career, 
+              Key projects and platforms I&apos;ve built and led throughout my career, 
               showcasing expertise across fintech, mobile, AI, and web technologies.
             </p>
             <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full mt-4"></div>
